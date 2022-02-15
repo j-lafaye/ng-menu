@@ -1,0 +1,99 @@
+:host {
+  --x-position: 0;
+  --y-position: 0;
+  --transform-x-position: 0;
+  --transform-y-position: 0;
+
+  width: 0;
+  height: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: none;
+  z-index: 1000;
+  transition: width 0s 0.15s, height 0s 0.15s;
+  transform-origin: var(--transform-x-position) var(--transform-y-position);
+  animation: zoomIn 0.15s ease-in-out;
+}
+
+:host(.show) {
+  width: 100%;
+  height: 100%;
+  transition: width 0s, height 0s;
+}
+
+.te-menu-container {
+  width: auto;
+  min-width: 0;
+  max-width: 0;
+  height: auto;
+  max-height: 0;
+  position: absolute;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+  z-index: 2;
+  opacity: 0;
+  border-radius: 16px;
+  transition: min-width 0s 0.15s, max-width 0s 0.15s, max-height 0s 0.15s, opacity 0.15s ease, box-shadow 0.15s ease;
+}
+
+:host(.position-below) .te-menu-container {
+  top: var(--y-position);
+}
+
+:host(.position-above) .te-menu-container {
+  bottom: var(--y-position);
+}
+
+:host(.position-after) .te-menu-container {
+  left: var(--x-position);
+}
+
+:host(.position-before) .te-menu-container {
+  right: var(--x-position);
+}
+
+:host(.show) .te-menu-container {
+  min-width: 128px;
+  max-width: 280px;
+  max-height: 280px;
+  opacity: 1;
+  -webkit-box-shadow: var(--app-box-shadow-level1);
+  box-shadow: var(--app-box-shadow-level1);
+  background-color: var(--md-sys-elevation-level4);
+  color: var(--md-sys-color-on-surface);
+  transition: opacity 0s;
+}
+
+.te-menu-scrim {
+  width: 0;
+  height: 0;
+  position: absolute;
+  overflow: hidden;
+  contain: strict;
+  z-index: 1;
+  transition: width 0s 0.15s, height 0s 0.15s;
+}
+
+:host(.show) .te-menu-scrim {
+  width: 100%;
+  height: 100%;
+  transition: width 0s, height 0s;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
