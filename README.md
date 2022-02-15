@@ -7,39 +7,17 @@ Basic example:
 
 example-page.component.html:
 
-<te-icon-button
-  type="menu"
-  target="menu-top-app-bar">
-
-  <span
-    class="material-icons-outlined">more_vert</span>
-
+<te-icon-button type="menu" target="menu-top-app-bar">
+  <span class="material-icons-outlined">more_vert</span>
 </te-icon-button>
-
-<te-menu
-  menu="menu-top-app-bar"
-  xPosition="before"
-  yPosition="below">
-
+<te-menu menu="menu-top-app-bar" xPosition="before" yPosition="below">
   <te-menu-button>
-
-    <span
-      class="te-menu-button-label-text">Button 1</span>
-
+    <span class="te-menu-button-label-text">Button 1</span>
   </te-menu-button>
-
   <te-menu-button>
-
-    <span
-      class="te-menu-button-label-text">Button 2</span>
-
+    <span class="te-menu-button-label-text">Button 2</span>
   </te-menu-button>
-
   <te-menu-button>
-
-    <span
-      class="te-menu-button-label-text">Button 3 very long text here to test overflow truncate</span>
-
+    <span class="te-menu-button-label-text">Button 3 very long text here to test overflow truncate</span>
   </te-menu-button>
-
 </te-menu>
